@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player.Utils;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
@@ -12,6 +13,7 @@ public class CharacterController : MonoBehaviour
   private Animator _anim; 
   private Vector2 _mv;
   private Rigidbody2D _rb2d;
+  [SerializeReference] private HighlightController _highlight;
 
   public bool IsWalk => _isWalk;
   public Vector2 LastMoveVec => _lastMoveVec;
@@ -25,6 +27,8 @@ public class CharacterController : MonoBehaviour
   {
     Move();
   }
+
+
 
   private void Move()
   {
